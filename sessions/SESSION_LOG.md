@@ -9,7 +9,8 @@ Este documento registra a trilha cronológica de todas as sessões de trabalho r
 | Sessão ID | Data / Hora (Início) | Agente / Persona | Objetivo Principal | Status | Commit Final |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **SESS-000** | 2026-11-11 22:11 | Architect & Instrutor | Apresentação do Planejamento Geral (Passo 1) | `CONCLUÍDA` | N/A (Apenas leitura/planejamento) |
-| **SESS-001** | 2026-11-12 11:27 | Principal Architect & Orchestrator | Construção e Validação da Infraestrutura da Etapa 1 | `CONCLUÍDA` | d710d1a (Baseline) + commit de testes |
+| **SESS-001** | 2026-11-12 11:27 | Principal Architect & Orchestrator | Construção e Validação da Infraestrutura da Etapa 1 | `CONCLUÍDA` | effc2c1 (14/14 critérios validados) |
+| **SESS-002** | 2026-11-12 11:56 | Instrutor & Tech Lead | Início da Etapa 2: Execução e Conclusão do Módulo 01 | `CONCLUÍDA` | Pendente commit |
 
 ---
 
@@ -17,26 +18,26 @@ Este documento registra a trilha cronológica de todas as sessões de trabalho r
 
 ### SESS-000: Planejamento Geral e Alinhamento Arquitetural
 * **Data:** 2026-11-11T22:11:54-03:00
-* **Objetivo:** Responder ao prompt contido em `instructions.txt` formulando o planejamento completo em duas etapas.
-* **Tarefas Abordadas:** `TASK-000`
-* **Resultado:** Planejamento apresentado. Usuário avaliou e aprovou: "Podemos iniciar o PASSO 3".
+* **Objetivo:** Responder ao prompt formulando o planejamento completo em duas etapas.
+* **Resultado:** Planejamento aprovado pelo usuário.
 
 ---
 
 ### SESS-001: Implementação da Infraestrutura de Continuidade e Teste Experimental
 * **Data:** 2026-11-12T11:27:14-03:00
-* **Objetivo:** Criar a topologia física de diretórios, contratos permanentes (`AGENTS.md`), arquivos de estado (`PROJECT_STATE.md`, `ROADMAP.md`, `TASKS.md`, `PROGRESS.md`, `HANDOFF.md`, `MILESTONES.md`), ADR-0001, regras e skills do Antigravity CLI, e conduzir o teste experimental dos 14 critérios de aceitação.
-* **Tarefas Concluídas:** `TASK-001`, `TASK-002`, `TASK-003`, `TASK-004`, `TASK-005`, `TASK-006`, `TASK-007`.
+* **Objetivo:** Criar a topologia física, contratos permanentes, arquivos de estado, regras e skills, e validar experimentalmente os 14 critérios de aceitação.
+* **Resultado:** 14 de 14 critérios aprovados com execução real. Usuário autorizou: "podemos seguir para a etapa 2".
+
+---
+
+### SESS-002: Etapa 2 — Início do Curso e Conclusão do Módulo 01 (Context Engineering)
+* **Data:** 2026-11-12T11:56:39-03:00
+* **Objetivo:** Apresentar a teoria aprofundada de Context Engineering (10 aspectos conceituais), implementar o componente `ContextManager` em `platform/src/context/` e validar com suíte de testes unitários automatizados.
+* **Tarefas Concluídas:** `TASK-101`.
 * **Alterações no Disco:**
-  * Topologia criada com `.gitkeep` em pastas vazias.
-  * `.gitignore` com isolamento de `.worktrees/*`.
-  * `AGENTS.md` definindo as 3 regras inegociáveis, protocolos de boot e shutdown.
-  * Arquivos de estado e governança em `state/` e `sessions/`.
-  * Registro de decisão em `docs/adr/0001-context-continuity-architecture.md`.
-  * Regras do Antigravity CLI em `.agents/rules/` (< 24 KB).
-  * Skills do Antigravity CLI em `.agents/skills/`.
-  * Script de teste experimental `platform/test_continuity_infrastructure.py`.
-  * Registro de evidência em `sessions/logs/validation_evidence.log`.
-* **Resultado dos Testes:**
-  * 14 de 14 critérios de aceitação aprovados (`PASSED`) com execução real de shell e git.
-* **Próxima Ação:** Apresentar relatório formal ao usuário e solicitar aprovação para considerar a Etapa 1 concluída antes de avançar para a Etapa 2.
+  * Criação do pacote `platform/src/context/` com `types.py`, `token_counter.py`, `context_manager.py`.
+  * Criação de `docs/adr/0002-context-manager-architecture.md`.
+  * Criação da suíte `platform/tests/test_context_manager.py` (8 testes unitários).
+  * Criação do material pedagógico completo em `course/module_01_context_eng/README.md`.
+* **Evidências de Teste:** 8/8 testes unitários aprovados via pytest no ambiente Python 3.13.
+* **Próxima Ação:** Apresentar os resultados do Módulo 01 ao usuário e solicitar autorização para iniciar o Módulo 02 (Fundamentos de LLMs, Modelos Google e Function Calling).

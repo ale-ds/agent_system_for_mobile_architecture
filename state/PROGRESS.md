@@ -8,15 +8,16 @@ Este documento registra o avanço do aprendizado em Engenharia de Sistemas Agên
 
 * **Total de Fases Planejadas:** 6 fases (após Etapa 1)
 * **Total de Módulos:** 18 módulos
-* **Módulos Concluídos:** 0 de 18
-* **Etapa Vigente:** Etapa 1 — Construção da Infraestrutura de Continuidade (Pré-requisito obrigatório)
+* **Módulos Concluídos:** 1 de 18 (5.55%)
+* **Etapa Vigente:** Etapa 2 — Programa de Aprendizado e Plataforma Mobile iOS
+* **Fase Vigente:** Fase I — Engenharia de Contexto e Fundamentos Agênticos
 
 ---
 
 ## Registro de Competências por Módulo
 
-### Etapa 1: Infraestrutura de Continuidade (Em Andamento)
-* **Conceitos Introduzidos:**
+### Etapa 1: Infraestrutura de Continuidade (CONCLUÍDA E APROVADA)
+* **Conceitos Dominados:**
   * Context Decay e Saturation em LLMs.
   * Single Source of Truth (SSOT) em repositórios Git.
   * Protocolo de Início de Sessão (Bootloader de Contexto).
@@ -26,17 +27,16 @@ Este documento registra o avanço do aprendizado em Engenharia de Sistemas Agên
 * **Implementações Validadas:**
   * Topologia de diretórios corporativa (`state/`, `sessions/`, `docs/`, `platform/`, `mobile/`).
   * Contratos e protocolos permanentes (`AGENTS.md`).
-* **Avaliação Prática:**
-  * Teste experimental de estresse e recuperação de contexto (em andamento).
+  * Suíte de teste experimental aprovando os 14 critérios de aceitação.
 
 ---
 
-### Etapa 2: Módulos do Curso (Aguardando Aprovação da Etapa 1)
+### Etapa 2: Módulos do Curso
 
 | Módulo | Título | Status | Competências Teóricas | Implementação Prática |
 | :--- | :--- | :--- | :--- | :--- |
-| **M01** | Context Engineering & Context Window | `BLOQUEADO` | Janela de contexto, atenção, compactação | Context Manager em Python |
-| **M02** | Fundamentos de LLMs & Modelos Google | `BLOQUEADO` | Transformers, Function Calling, Gemini APIs | LLMProvider multi-modelo |
+| **M01** | Context Engineering & Context Window | `CONCLUÍDO` | Janela de contexto, auto-atenção $O(N^2)$, diluição de softmax, budgeting e podas | `ContextManager`, `TokenBudget`, `TokenCounter` em `platform/src/context/` com 8/8 testes pytest |
+| **M02** | Fundamentos de LLMs & Modelos Google | `PRONTO` | Transformers, Function Calling, Gemini APIs | LLMProvider multi-modelo |
 | **M03** | Engenharia de Prompts Estruturada | `BLOQUEADO` | CoT, ReAct, Schemas Pydantic, Metaprompting | Motor de prompts tipado |
 | **M04** | Fundamentos de Agentes & ReAct Loop | `BLOQUEADO` | Loop Reason-Act-Observe, parsing | ReAct Agent em Python puro |
 | **M05** | Tool Engineering & Sandboxing | `BLOQUEADO` | Contratos de ferramentas, isolamento de shell | ToolRegistry validado |

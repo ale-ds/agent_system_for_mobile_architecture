@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mobile-agent-platform"
+version = "0.1.0"
+description = "Plataforma Agêntica Empresarial para Engenharia de Software Mobile iOS"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Principal Software Architect", email = "architect@agent.local" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
