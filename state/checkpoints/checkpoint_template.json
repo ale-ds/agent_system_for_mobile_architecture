@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AgentSystemCheckpoint",
+  "description": "Estrutura padronizada para registro de instantâneo de estado do projeto",
+  "type": "object",
+  "required": [
+    "checkpoint_id",
+    "timestamp",
+    "session_id",
+    "current_stage",
+    "current_module",
+    "execution_goal",
+    "completed_tasks",
+    "pending_tasks",
+    "modified_files",
+    "decisions_taken",
+    "executed_tests",
+    "known_issues",
+    "git_branch",
+    "git_worktree",
+    "last_validated_commit",
+    "next_authorized_action"
+  ],
+  "properties": {
+    "checkpoint_id": { "type": "string", "example": "CP-20261112-001" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "session_id": { "type": "string", "example": "SESS-001" },
+    "current_stage": { "type": "string", "example": "ETAPA_1_CONTINUITY_INFRA" },
+    "current_module": { "type": "string", "example": "NONE_PRE_COURSE" },
+    "execution_goal": { "type": "string" },
+    "completed_tasks": { "type": "array", "items": { "type": "string" } },
+    "pending_tasks": { "type": "array", "items": { "type": "string" } },
+    "changes_summary": { "type": "string" },
+    "modified_files": { "type": "array", "items": { "type": "string" } },
+    "decisions_taken": { "type": "array", "items": { "type": "string" } },
+    "executed_tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["test_name", "status", "evidence_log"],
+        "properties": {
+          "test_name": { "type": "string" },
+          "status": { "type": "string", "enum": ["PASSED", "FAILED", "SKIPPED"] },
+          "evidence_log": { "type": "string" }
+        }
+      }
+    },
+    "known_issues": { "type": "array", "items": { "type": "string" } },
+    "git_branch": { "type": "string" },
+    "git_worktree": { "type": "string" },
+    "last_validated_commit": { "type": "string" },
+    "next_authorized_action": { "type": "string" }
+  }
+}
